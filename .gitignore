@@ -2,3 +2,5 @@
 DS_store
 public
 node_modules
+
+.env

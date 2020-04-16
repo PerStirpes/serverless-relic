@@ -5,9 +5,12 @@ const { v4: uuidv4 } = require("uuid")
 AWS.config.update({
     region: "us-east-2",
     accessKeyId: process.env.MY_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.MY_AWS_SECRET_ACCESS_KEY
-  });
-  
+    secretAccessKey: process.env.MY_AWS_SECRET_ACCESS_KEY,
+})
+
+const table = "todos"
+const docClient = new AWS.DynamoDB.DocumentClient()
+
 const typeDefs = gql`
     type Query {
         todos: [Todo]!
@@ -23,8 +26,6 @@ const typeDefs = gql`
     }
 `
 
-const todos = {}
-let todoIndex = 0
 const resolvers = {
     Query: {
         todos: async (parent, args, { user }) => {
