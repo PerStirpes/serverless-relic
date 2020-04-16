@@ -75,16 +75,16 @@ export default () => {
             </Flex>
             <Flex
                 as="form"
-                onSubmit={async (e) => {
+                onSubmit={ (e) => {
                     e.preventDefault()
-
-                    for (var i = 0; i <= 1000000; i++) {
-                        await addTodo({ variables: { text: i } })
+                    var i
+                    for (i = 0; i <= 100000; i++) {
+                         addTodo({ variables: { text: i } })
                     }
 
                     {/* await addTodo({ variables: { text: inputRef.current.value } }) */}
-                    inputRef.current.value = ""
-                    await refetch()
+                    {/* inputRef.current.value = "" */}
+                    {/* await refetch() */}
                 }}
             >
                 <Label sx={{ display: "flex" }}>
