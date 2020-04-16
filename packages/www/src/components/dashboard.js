@@ -77,7 +77,12 @@ export default () => {
                 as="form"
                 onSubmit={async (e) => {
                     e.preventDefault()
-                    await addTodo({ variables: { text: inputRef.current.value } })
+
+                    for (var i = 0; i <= 1000000; i++) {
+                        await addTodo({ variables: { text: i } })
+                    }
+
+                    {/* await addTodo({ variables: { text: inputRef.current.value } }) */}
                     inputRef.current.value = ""
                     await refetch()
                 }}
