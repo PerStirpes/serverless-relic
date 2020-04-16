@@ -13,7 +13,7 @@ const wrapRootElement = require("./wrap-root-element");
 
 const httpLink = new HttpLink({
   uri:
-    "https://serverless-relic.netlify.app/.netlify/functions/graphql"
+    "/.netlify/functions/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
