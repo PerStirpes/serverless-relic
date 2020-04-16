@@ -10,6 +10,12 @@ const netlifyIdentity = require("netlify-identity-widget");
 
 const wrapRootElement = require("./wrap-root-element");
 
+
+const httpLink = new HttpLink({
+  uri:
+    "https://serverless-relic.netlify.app/.netlify/functions/graphql"
+});
+
 const authLink = setContext((_, { headers }) => {
   const user = netlifyIdentity.currentUser();
   const token = user.token.access_token;
@@ -22,10 +28,6 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-const httpLink = new HttpLink({
-  uri:
-    "https://serverless-relic.netlify.app/.netlify/functions/graphql"
-});
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: authLink.concat(httpLink)
