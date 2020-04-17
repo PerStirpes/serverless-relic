@@ -11,4 +11,4 @@ RUN yarn add newrelic
 
 COPY . ./
 
-CMD ["yarn"]
+CMD ["yarn", "start"]
