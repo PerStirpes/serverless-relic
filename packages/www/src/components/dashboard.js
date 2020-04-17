@@ -61,7 +61,7 @@ export default () => {
             </Flex>
             <Flex
                 as="form"
-                onSubmit={ (e) => {
+                onSubmit={ async (e) => {
                     e.preventDefault()
                     // intentionally was aiming for a stack overflow      
                     /*var i
