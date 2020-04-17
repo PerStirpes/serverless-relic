@@ -3,7 +3,7 @@ const wrapRootElement = require("./wrap-root-element")
 
 
 exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
-  const amplitudeScript = (
+  const newRelic = (
     <script
       key={'amplitude'}
       dangerouslySetInnerHTML={{
@@ -21,7 +21,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
     <link key="preconnect-api" rel="preconnect" href="https://api.amplitude.com" />,
   ])
 
-  return setPostBodyComponents([amplitudeScript])
+  return setPostBodyComponents([newRelic])
 }
 
 exports.wrapRootElement = wrapRootElement
