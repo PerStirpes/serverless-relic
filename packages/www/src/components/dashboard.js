@@ -34,7 +34,6 @@ const GET_TODOS = gql`
 
 export default () => {
     const { user, identity: netlifyIdentity } = useContext(IdentityContext)
-    // const [todos, dispatch] = useReducer(todosReducer, [])
     const inputRef = useRef()
     const [addTodo] = useMutation(ADD_TODO)
     const [updateTodoDone] = useMutation(UPDATE_TODO_DONE)
@@ -64,14 +63,14 @@ export default () => {
                 as="form"
                 onSubmit={ (e) => {
                     e.preventDefault()
-                    var i
+                    // intentionally was aiming for a stack overflow      
+                    /*var i
                     for (i = 0; i <= 100000; i++) {
                          addTodo({ variables: { text: String(i) } }) 
-                    }
-  {/* await addTodo({ variables: { text: inputRef.current.value } }) */}
-                    {/* inputRef.current.value = "" */}
-                    {/* await refetch() */}
-                  
+                    }*/
+                    await addTodo({ variables: { text: inputRef.current.value } }) 
+                     inputRef.current.value = "" 
+                    await refetch() 
                 }}
             >
                 <Label sx={{ display: "flex" }}>
